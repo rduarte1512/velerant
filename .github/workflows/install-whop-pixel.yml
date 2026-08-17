@@ -1,0 +1,47 @@
+name: Install Whop Pixel
+
+on:
+  push:
+    branches:
+      - install-whop-pixel
+    paths:
+      - .github/workflows/install-whop-pixel.yml
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: install-whop-pixel
+
+      - name: Insert Whop Pixel into global head
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path("index.html")
+          text = path.read_text(encoding="utf-8")
+          snippet = '<script>!function(w,d,s,u,n,a,b){if(w[n])return;a=w[n]={q:[],t:+new Date,s:[],o:u,track:function(){a.q.push([+new Date].concat([].slice.call(arguments)))},setScope:function(){a.s=[].slice.call(arguments).filter(function(x){return typeof x==="string"});a.q.push([+new Date,"setScope"].concat(a.s))},scope:function(){var c=[].slice.call(arguments);return{track:function(){a.q.push([+new Date].concat([].slice.call(arguments)).concat([{__scope:c}]))}}}};b=d.createElement(s);b.async=1;b.src=u+"/s.js";d.getElementsByTagName(s)[0].parentNode.insertBefore(b,d.getElementsByTagName(s)[0])}(window,document,"script","https://t.whop.tw","whop");whop.setScope("biz_TLe64QQAtuEpCe");whop.track("page");</script>'
+
+          if snippet not in text:
+              if "</head>" not in text:
+                  raise SystemExit("No closing </head> tag found")
+              text = text.replace("</head>", snippet + "\n</head>", 1)
+              path.write_text(text, encoding="utf-8")
+
+      - name: Commit pixel installation
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "Pixel already installed; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- index.html
+          git commit -m "Install Whop Pixel"
+          git push origin HEAD:install-whop-pixel
