@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#070706" />
+  <meta name="description" content="Velerant — fios e pulseiras premium para homens que escolhem presença, detalhe e carácter." />
+  <title>Velerant — Acessórios masculinos com presença</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070706;
+      --bg-soft: #0d0d0b;
+      --panel: #11110f;
+      --panel-2: #171613;
+      --text: #f4f0e7;
+      --muted: #a9a399;
+      --line: rgba(255,255,255,.11);
+      --gold: #c9a55f;
+      --gold-2: #e8cf91;
+      --cream: #ebe1cc;
+      --max: 1240px;
+      --ease: cubic-bezier(.2,.75,.25,1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 77% 11%, rgba(201,165,95,.09), transparent 27rem),
+        radial-gradient(circle at 10% 42%, rgba(255,255,255,.035), transparent 24rem),
+        var(--bg);
+      font-family: "Manrope", system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .18;
+      z-index: 999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { width: 100%; display: block; }
+    button { font: inherit; }
+
+    .container { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold-2);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: .22em;
+      font-weight: 700;
+    }
+    .eyebrow::before { content:""; width: 28px; height: 1px; background: var(--gold); }
+    .serif { font-family: "Playfair Display", serif; }
+
+    .announcement {
+      height: 34px;
+      display: grid;
+      place-items: center;
+      background: var(--cream);
+      color: #13110d;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+    }
+
+    .nav-wrap {
+      position: absolute;
+      top: 34px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      transition: background .3s ease, backdrop-filter .3s ease, border-color .3s ease;
+    }
+    .nav-wrap.scrolled {
+      position: fixed;
+      top: 0;
+      background: rgba(7,7,6,.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      height: 82px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .nav-left, .nav-right { display:flex; align-items:center; gap: 28px; }
+    .nav-right { justify-content:flex-end; }
+    .nav-link {
+      font-size: 12px;
+      color: rgba(255,255,255,.78);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: color .2s ease;
+    }
+    .nav-link:hover { color: var(--gold-2); }
+    .brand {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 12px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: .34em;
+    }
+    .brand-mark {
+      position: relative;
+      width: 26px;
+      height: 25px;
+      display:inline-block;
+    }
+    .brand-mark::before,
+    .brand-mark::after {
+      content:"";
+      position:absolute;
+      top:0;
+      width:4px;
+      height:27px;
+      background: linear-gradient(180deg, var(--gold-2), var(--gold));
+      transform-origin: top;
+      border-radius: 3px;
+    }
+    .brand-mark::before { left:5px; transform: rotate(-31deg); }
+    .brand-mark::after { right:5px; transform: rotate(31deg); }
+    .pill-link {
+      border: 1px solid rgba(255,255,255,.22);
+      padding: 11px 16px;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: .25s ease;
+    }
+    .pill-link:hover { border-color: var(--gold); color: var(--gold-2); }
+    .menu-btn { display:none; background:transparent; border:0; color:#fff; padding:8px; cursor:pointer; }
+    .menu-btn span { display:block; width:23px; height:1px; background:#fff; margin:5px 0; }
+
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: grid;
+      align-items: end;
+      padding: 150px 0 64px;
+      overflow: hidden;
+    }
+    .hero::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(90deg, rgba(5,5,4,.94) 0%, rgba(5,5,4,.72) 34%, rgba(5,5,4,.18) 69%, rgba(5,5,4,.3) 100%), linear-gradient(0deg, #070706 0%, transparent 31%);
+      pointer-events:none;
+    }
+    .hero-bg {
+      position:absolute;
+      inset:0;
+      background:
+        url('https://cdn.shopify.com/s/files/1/0735/2683/7350/files/image_84a55760-af8c-4e10-8efc-455e16b0587a.png?v=1786985100') center 44% / cover no-repeat;
+      filter: saturate(.78) contrast(1.08) brightness(.64);
+      transform: scale(1.05);
+    }
+    .hero-glow {
+      position:absolute;
+      right: 5%;
+      top: 14%;
+      width: 38vw;
+      height: 38vw;
+      max-width: 560px;
+      max-height: 560px;
+      border-radius: 50%;
+      background: rgba(201,165,95,.13);
+      filter: blur(100px);
+    }
+    .hero-inner { position:relative; z-index:2; display:grid; grid-template-columns: 1.05fr .95fr; align-items:end; gap: 40px; }
+    .hero-copy { max-width: 760px; }
+    .hero h1 {
+      margin: 18px 0 22px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(60px, 8vw, 118px);
+      font-weight: 600;
+      line-height: .88;
+      letter-spacing: -.045em;
+      max-width: 860px;
+    }
+    .hero h1 em { color: var(--gold-2); font-weight: 600; }
+    .hero-sub {
+      max-width: 560px;
+      color: rgba(255,255,255,.72);
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 34px;
+    }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .btn {
+      min-height: 54px;
+      padding: 0 23px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 13px;
+      border: 1px solid transparent;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      transition: transform .25s var(--ease), background .25s ease, border-color .25s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--cream); color:#0b0a08; }
+    .btn-primary:hover { background:#fff5df; }
+    .btn-dark { border-color: rgba(255,255,255,.25); color:#fff; background: rgba(8,8,7,.18); backdrop-filter: blur(8px); }
+    .btn-dark:hover { border-color: var(--gold); }
+    .btn .arrow { font-size:16px; transition: transform .2s ease; }
+    .btn:hover .arrow { transform: translateX(3px); }
+    .hero-note {
+      justify-self:end;
+      width:min(100%, 330px);
+      border-top: 1px solid rgba(255,255,255,.26);
+      padding-top: 16px;
+      color: rgba(255,255,255,.6);
+      font-size: 12px;
+      line-height:1.6;
+    }
+    .hero-note strong { display:block; color:#fff; font-size:13px; margin-bottom:5px; letter-spacing:.04em; }
+    .scroll-cue { position:absolute; z-index:3; right:28px; bottom:64px; writing-mode:vertical-rl; font-size:9px; letter-spacing:.23em; text-transform:uppercase; color:rgba(255,255,255,.48); }
+
+    .ticker { border-block:1px solid var(--line); overflow:hidden; background:#0a0a08; }
+    .ticker-track { display:flex; width:max-content; animation: ticker 25s linear infinite; }
+    .ticker-item { padding:18px 28px; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.61); white-space:nowrap; display:flex; align-items:center; gap:28px; }
+    .ticker-item::after { content:"✦"; color:var(--gold); font-size:8px; }
+    @keyframes ticker { to { transform: translateX(-50%); } }
+
+    section { padding: 110px 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:42px; }
+    .section-head h2 { margin:12px 0 0; font-family:"Playfair Display",serif; font-size:clamp(40px,5vw,72px); line-height:.98; font-weight:600; letter-spacing:-.035em; }
+    .section-head p { max-width:440px; color:var(--muted); font-size:14px; line-height:1.7; margin:0; }
+
+    .collection-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .product-card {
+      position:relative;
+      min-height:590px;
+      overflow:hidden;
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.08);
+      isolation:isolate;
+    }
+    .product-card img { position:absolute; inset:0; height:100%; object-fit:cover; transition: transform .7s var(--ease), filter .5s ease; filter:saturate(.78) brightness(.82); }
+    .product-card::before { content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(0deg, rgba(5,5,4,.92), rgba(5,5,4,.05) 67%); }
+    .product-card:hover img { transform:scale(1.045); filter:saturate(.9) brightness(.9); }
+    .product-content { position:absolute; z-index:2; left:24px; right:24px; bottom:24px; }
+    .product-meta { display:flex; justify-content:space-between; gap:18px; color:#d9d3c7; font-size:10px; letter-spacing:.14em; text-transform:uppercase; margin-bottom:12px; }
+    .product-card h3 { font-family:"Playfair Display",serif; font-size:29px; margin:0 0 18px; font-weight:600; }
+    .product-link { display:inline-flex; align-items:center; gap:9px; font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); }
+    .product-link span { transition: transform .2s ease; }
+    .product-link:hover span { transform:translateX(4px); }
+
+    .statement { padding: 50px 0 120px; }
+    .statement-box { border-block:1px solid var(--line); padding:80px 0; display:grid; grid-template-columns:.7fr 1.3fr; gap:50px; align-items:start; }
+    .statement h2 { margin:0; font-family:"Playfair Display",serif; font-size:clamp(46px,7vw,96px); line-height:.98; font-weight:600; letter-spacing:-.04em; }
+    .statement h2 span { color:var(--gold-2); }
+    .statement-copy { padding-top:12px; }
+    .statement-copy p { font-size:16px; line-height:1.8; color:var(--muted); max-width:620px; margin:0 0 28px; }
+    .facts { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:32px; }
+    .fact { border-top:1px solid var(--line); padding-top:16px; }
+    .fact strong { display:block; font-family:"Playfair Display",serif; font-size:31px; color:var(--cream); font-weight:600; }
+    .fact span { display:block; color:#8e887e; font-size:10px; text-transform:uppercase; letter-spacing:.14em; margin-top:5px; }
+
+    .spotlight { padding:0; background:#0b0b09; }
+    .spotlight-grid { display:grid; grid-template-columns:1.12fr .88fr; min-height:780px; }
+    .spotlight-media { position:relative; overflow:hidden; }
+    .spotlight-media img { height:100%; object-fit:cover; filter:saturate(.72) contrast(1.06); }
+    .spotlight-media::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg, transparent 60%, #0b0b09 100%); }
+    .spotlight-copy { display:flex; flex-direction:column; justify-content:center; padding:70px clamp(36px,6vw,90px); }
+    .spotlight-copy h2 { font-family:"Playfair Display",serif; font-size:clamp(48px,5vw,75px); line-height:.98; font-weight:600; letter-spacing:-.04em; margin:14px 0 25px; }
+    .spotlight-copy p { color:var(--muted); line-height:1.8; font-size:14px; max-width:470px; }
+    .spec-list { margin:26px 0 34px; display:grid; gap:13px; }
+    .spec { padding-bottom:13px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; gap:20px; font-size:11px; text-transform:uppercase; letter-spacing:.09em; color:#918b80; }
+    .spec b { color:#d8d1c4; font-weight:600; }
+
+    .categories { padding-bottom:120px; }
+    .category-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .category-card { position:relative; min-height:620px; overflow:hidden; border:1px solid var(--line); }
+    .category-card img { position:absolute; inset:0; height:100%; object-fit:cover; filter:saturate(.65) brightness(.62); transition: transform .7s var(--ease), filter .4s ease; }
+    .category-card:hover img { transform:scale(1.035); filter:saturate(.8) brightness(.7); }
+    .category-card::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(5,5,4,.88), transparent 65%); }
+    .category-label { position:absolute; z-index:2; left:32px; right:32px; bottom:30px; display:flex; justify-content:space-between; align-items:end; gap:20px; }
+    .category-label h3 { font-family:"Playfair Display",serif; font-size:52px; font-weight:600; margin:0; }
+    .circle-arrow { width:48px; height:48px; border:1px solid rgba(255,255,255,.35); border-radius:50%; display:grid; place-items:center; transition:.25s ease; }
+    .category-card:hover .circle-arrow { background:var(--cream); color:#111; border-color:var(--cream); transform:rotate(-35deg); }
+
+    .trust { background:#e8dfce; color:#17140f; padding:70px 0; }
+    .trust-grid { display:grid; grid-template-columns:repeat(4,1fr); }
+    .trust-item { padding:0 26px; min-height:120px; border-right:1px solid rgba(23,20,15,.2); }
+    .trust-item:first-child { padding-left:0; }
+    .trust-item:last-child { border-right:0; }
+    .trust-icon { font-family:"Playfair Display",serif; color:#8c6a32; font-size:25px; margin-bottom:18px; }
+    .trust-item h3 { font-size:12px; text-transform:uppercase; letter-spacing:.12em; margin:0 0 8px; }
+    .trust-item p { color:#625b50; font-size:12px; line-height:1.6; margin:0; }
+
+    .editorial { padding:130px 0; }
+    .editorial-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:14px; align-items:stretch; }
+    .editorial-copy { border:1px solid var(--line); padding:58px; display:flex; flex-direction:column; justify-content:space-between; min-height:640px; }
+    .editorial-copy blockquote { font-family:"Playfair Display",serif; font-size:clamp(40px,4.4vw,65px); line-height:1.04; margin:0; letter-spacing:-.035em; }
+    .editorial-copy blockquote em { color:var(--gold-2); }
+    .editorial-copy p { color:var(--muted); line-height:1.75; max-width:420px; font-size:14px; }
+    .editorial-image { position:relative; min-height:640px; overflow:hidden; }
+    .editorial-image img { position:absolute; inset:0; height:100%; object-fit:cover; filter:saturate(.7) contrast(1.03); }
+    .editorial-image::after { content:"VELERANT / 01"; position:absolute; right:22px; bottom:22px; font-size:9px; letter-spacing:.2em; color:rgba(255,255,255,.62); }
+
+    .final-cta { position:relative; overflow:hidden; padding:150px 0; text-align:center; background:#0b0a08; }
+    .final-cta::before { content:""; position:absolute; width:580px; height:580px; border-radius:50%; background:rgba(201,165,95,.11); filter:blur(100px); left:50%; top:50%; transform:translate(-50%,-50%); }
+    .final-cta .container { position:relative; z-index:1; }
+    .final-cta h2 { font-family:"Playfair Display",serif; font-size:clamp(58px,8vw,120px); line-height:.88; margin:18px auto 28px; max-width:1000px; letter-spacing:-.055em; font-weight:600; }
+    .final-cta h2 span { color:var(--gold-2); }
+    .final-cta p { color:var(--muted); max-width:570px; margin:0 auto 34px; line-height:1.7; }
+    .final-cta .actions { justify-content:center; }
+
+    footer { border-top:1px solid var(--line); padding:55px 0 28px; }
+    .footer-top { display:grid; grid-template-columns:1.3fr .7fr .7fr; gap:60px; padding-bottom:50px; }
+    .footer-brand .brand { justify-content:flex-start; margin-bottom:20px; }
+    .footer-brand p { max-width:390px; color:#8d887f; font-size:12px; line-height:1.7; }
+    .footer-col h4 { font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-2); margin:0 0 18px; }
+    .footer-col a { display:block; color:#aaa399; font-size:12px; margin:11px 0; }
+    .footer-col a:hover { color:#fff; }
+    .footer-bottom { border-top:1px solid var(--line); padding-top:22px; display:flex; justify-content:space-between; gap:20px; color:#6e6961; font-size:9px; letter-spacing:.12em; text-transform:uppercase; }
+
+    .reveal { opacity:0; transform:translateY(26px); transition:opacity .85s var(--ease), transform .85s var(--ease); }
+    .reveal.in { opacity:1; transform:none; }
+
+    .mobile-menu {
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:100;
+      background:#080807;
+      padding:28px;
+      flex-direction:column;
+      justify-content:center;
+      gap:20px;
+    }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu .close { position:absolute; right:28px; top:28px; background:none; border:0; color:#fff; font-size:28px; }
+    .mobile-menu a { font-family:"Playfair Display",serif; font-size:42px; border-bottom:1px solid var(--line); padding:10px 0; }
+
+    @media (max-width: 980px) {
+      .nav { grid-template-columns:auto 1fr auto; }
+      .nav-left, .nav-right .nav-link, .nav-right .pill-link { display:none; }
+      .menu-btn { display:block; }
+      .brand { justify-self:center; }
+      .hero-inner { grid-template-columns:1fr; }
+      .hero-note { justify-self:start; }
+      .collection-grid { grid-template-columns:1fr 1fr; }
+      .collection-grid .product-card:last-child { grid-column:span 2; min-height:520px; }
+      .statement-box { grid-template-columns:1fr; }
+      .spotlight-grid { grid-template-columns:1fr; }
+      .spotlight-media { min-height:640px; }
+      .spotlight-media::after { background:linear-gradient(0deg,#0b0b09,transparent 35%); }
+      .trust-grid { grid-template-columns:1fr 1fr; gap:36px 0; }
+      .trust-item:nth-child(2) { border-right:0; }
+      .editorial-grid { grid-template-columns:1fr; }
+      .footer-top { grid-template-columns:1fr 1fr; }
+      .footer-brand { grid-column:span 2; }
+    }
+
+    @media (max-width: 680px) {
+      .container { width:min(calc(100% - 28px), var(--max)); }
+      .announcement { font-size:8px; letter-spacing:.13em; }
+      .nav { height:70px; }
+      .brand { font-size:16px; gap:9px; letter-spacing:.28em; }
+      .brand-mark { transform:scale(.82); }
+      .hero { padding:130px 0 46px; min-height:820px; }
+      .hero::after { background:linear-gradient(0deg, rgba(5,5,4,.98) 0%, rgba(5,5,4,.7) 48%, rgba(5,5,4,.2) 100%); }
+      .hero-bg { background-position:62% 28%; }
+      .hero h1 { font-size:clamp(56px,17vw,82px); }
+      .hero-sub { font-size:14px; }
+      .hero-note, .scroll-cue { display:none; }
+      .actions .btn { width:100%; }
+      section { padding:82px 0; }
+      .section-head { align-items:start; flex-direction:column; }
+      .collection-grid { grid-template-columns:1fr; }
+      .collection-grid .product-card:last-child { grid-column:auto; }
+      .product-card { min-height:560px; }
+      .statement { padding-bottom:80px; }
+      .statement-box { padding:60px 0; }
+      .facts { grid-template-columns:1fr; }
+      .spotlight-media { min-height:520px; }
+      .spotlight-copy { padding:55px 24px 70px; }
+      .category-grid { grid-template-columns:1fr; }
+      .category-card { min-height:530px; }
+      .category-label h3 { font-size:44px; }
+      .trust-grid { grid-template-columns:1fr; }
+      .trust-item, .trust-item:first-child { border-right:0; border-bottom:1px solid rgba(23,20,15,.18); padding:0 0 26px; min-height:0; }
+      .editorial-copy { padding:32px 25px; min-height:540px; }
+      .editorial-image { min-height:500px; }
+      .footer-top { grid-template-columns:1fr; gap:30px; }
+      .footer-brand { grid-column:auto; }
+      .footer-bottom { flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">Acessórios masculinos · design com presença · Velerant</div>
+
+  <div class="nav-wrap" id="navWrap">
+    <nav class="nav container" aria-label="Navegação principal">
+      <div class="nav-left">
+        <a class="nav-link" href="#colecao">Coleção</a>
+        <a class="nav-link" href="#historia">A Velerant</a>
+      </div>
+
+      <a class="brand" href="#top" aria-label="Velerant, início">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>VELERANT</span>
+      </a>
+
+      <div class="nav-right">
+        <a class="nav-link" href="#categorias">Fios &amp; Pulseiras</a>
+        <a class="pill-link" href="https://velerant.myshopify.com" target="_blank" rel="noopener">Comprar</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu"><span></span><span></span></button>
+      </div>
+    </nav>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close" id="menuClose" aria-label="Fechar menu">×</button>
+    <a href="#colecao">Coleção</a>
+    <a href="#historia">A Velerant</a>
+    <a href="#categorias">Fios &amp; Pulseiras</a>
+    <a href="https://velerant.myshopify.com" target="_blank" rel="noopener">Loja</a>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-glow"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Joalharia masculina</span>
+          <h1>Estilo que impõe <em>presença.</em></h1>
+          <p class="hero-sub">Fios e pulseiras desenhados para homens que sabem que os detalhes não completam o visual — definem-no.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#colecao">Explorar coleção <span class="arrow">→</span></a>
+            <a class="btn btn-dark" href="https://velerant.myshopify.com" target="_blank" rel="noopener">Ver loja</a>
+          </div>
+        </div>
+        <div class="hero-note reveal">
+          <strong>Feito para se destacar.</strong>
+          Design masculino, materiais marcantes e uma estética construída para transmitir carácter sem dizer uma palavra.
+        </div>
+      </div>
+      <div class="scroll-cue">Scroll para descobrir</div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <div class="ticker-item">Design masculino</div><div class="ticker-item">Aço inoxidável</div><div class="ticker-item">Ouro 18K</div><div class="ticker-item">Couro</div><div class="ticker-item">Pérolas negras</div><div class="ticker-item">Velerant</div>
+        <div class="ticker-item">Design masculino</div><div class="ticker-item">Aço inoxidável</div><div class="ticker-item">Ouro 18K</div><div class="ticker-item">Couro</div><div class="ticker-item">Pérolas negras</div><div class="ticker-item">Velerant</div>
+      </div>
+    </div>
+
+    <section id="colecao">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Seleção Velerant</span>
+            <h2>Peças com<br><span class="serif">carácter.</span></h2>
+          </div>
+          <p>Três interpretações de presença masculina. Do brilho quente do ouro ao contraste das pérolas negras e à solidez do aço.</p>
+        </div>
+
+        <div class="collection-grid">
+          <article class="product-card reveal">
+            <img src="https://cdn.shopify.com/s/files/1/0735/2683/7350/files/image_84a55760-af8c-4e10-8efc-455e16b0587a.png?v=1786985100" alt="Fio de Ouro 18K Masculino Velerant" loading="lazy" />
+            <div class="product-content">
+              <div class="product-meta"><span>Fio</span><span>Ouro 18K</span></div>
+              <h3>Fio de Ouro 18K</h3>
+              <a class="product-link" href="https://velerant.myshopify.com/products/fio-de-ouro-18k-masculino" target="_blank" rel="noopener">Descobrir peça <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <img src="https://cdn.shopify.com/s/files/1/0735/2683/7350/files/image_a4fcc934-2f81-4a8a-9228-5951343ee496.png?v=1786985217" alt="Fio de Pérolas Negras Masculino Velerant" loading="lazy" />
+            <div class="product-content">
+              <div class="product-meta"><span>Fio</span><span>Pérolas negras</span></div>
+              <h3>Fio de Pérolas Negras</h3>
+              <a class="product-link" href="https://velerant.myshopify.com/products/fio-de-perolas-negras-masculino" target="_blank" rel="noopener">Descobrir peça <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <img src="https://cdn.shopify.com/s/files/1/0735/2683/7350/files/image_75c9f7f3-1e8f-4350-a829-7026900b107f.png?v=1786985011" alt="Pulseira de Aço Inoxidável Masculina Velerant" loading="lazy" />
+            <div class="product-content">
+              <div class="product-meta"><span>Pulseira</span><span>Aço 316L</span></div>
+              <h3>Pulseira de Aço</h3>
+              <a class="product-link" href="https://velerant.myshopify.com/products/pulseira-de-aco-inoxidavel-masculina" target="_blank" rel="noopener">Descobrir peça <span>→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement" id="historia">
+      <div class="container statement-box">
+        <div class="reveal"><span class="eyebrow">A nossa visão</span></div>
+        <div class="reveal">
+          <h2>Menos ruído.<br><span>Mais presença.</span></h2>
+          <div class="statement-copy">
+            <p>A Velerant nasceu de uma ideia simples: um acessório masculino deve acrescentar personalidade, não distração. Cada peça é escolhida para criar contraste, textura e assinatura.</p>
+            <a class="product-link" href="https://velerant.myshopify.com" target="_blank" rel="noopener">Conhecer a coleção completa <span>→</span></a>
+            <div class="facts">
+              <div class="fact"><strong>316L</strong><span>Aço selecionado</span></div>
+              <div class="fact"><strong>18K</strong><span>Elegância clássica</span></div>
+              <div class="fact"><strong>01</strong><span>Assinatura Velerant</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="spotlight">
+      <div class="spotlight-grid">
+        <div class="spotlight-media reveal">
+          <img src="https://cdn.shopify.com/s/files/1/0735/2683/7350/files/image_cf6aff33-c860-4db6-8dd1-617a52b12203.png?v=1786985032" alt="Fio de Prata com Pingente Cruz Velerant" loading="lazy" />
+        </div>
+        <div class="spotlight-copy reveal">
+          <span class="eyebrow">Detalhe em foco</span>
+          <h2>Um clássico.<br>Sem ser comum.</h2>
+          <p>Prata, linhas limpas e um símbolo intemporal. Uma peça criada para funcionar tanto num visual diário como num registo mais cuidado.</p>
+          <div class="spec-list">
+            <div class="spec"><span>Peça</span><b>Fio com pingente</b></div>
+            <div class="spec"><span>Material</span><b>Prata 925</b></div>
+            <div class="spec"><span>Estilo</span><b>Minimal / masculino</b></div>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://velerant.myshopify.com/products/fio-de-prata-com-pingente-cruz" target="_blank" rel="noopener">Ver fio <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories" id="categorias">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Escolhe o teu detalhe</span>
+            <h2>Dois caminhos.<br>Uma assinatura.</h2>
+          </div>
+          <p>Constrói o teu visual a partir da peça certa. Fios para marcar a silhueta. Pulseiras para dar força ao detalhe.</p>
+        </div>
+
+        <div class="category-grid">
+          <a class="category-card reveal" href="https://velerant.myshopify.com/collections/all" target="_blank" rel="noopener">
+            <img src="https://cdn.shopify.com/s/files/1/0735/2683/7350/files/image_2813efe1-d1b8-45e7-b602-b3848cd3fad9.png?v=1786985071" alt="Fios masculinos Velerant" loading="lazy" />
+            <div class="category-label"><h3>Fios</h3><span class="circle-arrow">→</span></div>
+          </a>
+          <a class="category-card reveal" href="https://velerant.myshopify.com/collections/all" target="_blank" rel="noopener">
+            <img src="https://cdn.shopify.com/s/files/1/0735/2683/7350/files/image.png?v=1786984988" alt="Pulseiras masculinas Velerant" loading="lazy" />
+            <div class="category-label"><h3>Pulseiras</h3><span class="circle-arrow">→</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust">
+      <div class="container trust-grid">
+        <div class="trust-item reveal"><div class="trust-icon">01</div><h3>Materiais com carácter</h3><p>Aço, couro, prata, ouro e pedras escolhidos pelo impacto visual e acabamento.</p></div>
+        <div class="trust-item reveal"><div class="trust-icon">02</div><h3>Design masculino</h3><p>Proporções e detalhes pensados para elevar o visual sem o tornar excessivo.</p></div>
+        <div class="trust-item reveal"><div class="trust-icon">03</div><h3>Estilo versátil</h3><p>Peças que transitam facilmente entre um registo casual, urbano ou mais elegante.</p></div>
+        <div class="trust-item reveal"><div class="trust-icon">04</div><h3>Compra segura</h3><p>Finaliza a tua encomenda diretamente através da loja oficial Velerant.</p></div>
+      </div>
+    </section>
+
+    <section class="editorial">
+      <div class="container editorial-grid">
+        <div class="editorial-copy reveal">
+          <blockquote>“O acessório certo não chama atenção. <em>Prende-a.</em>”</blockquote>
+          <div>
+            <p>Velerant é presença construída nos detalhes: peso, textura, contraste e proporção. Uma linguagem visual simples, masculina e impossível de confundir.</p>
+            <a class="product-link" href="https://velerant.myshopify.com" target="_blank" rel="noopener">Entrar na Velerant <span>→</span></a>
+          </div>
+        </div>
+        <div class="editorial-image reveal">
+          <img src="https://cdn.shopify.com/s/files/1/0735/2683/7350/files/image_7caf0c47-48c1-411a-9144-fe2b790b31c0.png?v=1786985050" alt="Pulseira Olho de Tigre Velerant" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container reveal">
+        <span class="eyebrow">Velerant</span>
+        <h2>O teu estilo.<br><span>A tua presença.</span></h2>
+        <p>Descobre a coleção completa de fios e pulseiras masculinas e encontra a peça que diz tudo antes de dizeres uma palavra.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://velerant.myshopify.com" target="_blank" rel="noopener">Comprar agora <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span>VELERANT</span></div>
+          <p>Fios e pulseiras para homens que transformam detalhe em presença.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Descobrir</h4>
+          <a href="#colecao">Coleção</a>
+          <a href="#categorias">Fios</a>
+          <a href="#categorias">Pulseiras</a>
+        </div>
+        <div class="footer-col">
+          <h4>Velerant</h4>
+          <a href="#historia">A marca</a>
+          <a href="https://velerant.myshopify.com" target="_blank" rel="noopener">Loja oficial</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Velerant. Todos os direitos reservados.</span>
+        <span>Designed for presence.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navWrap = document.getElementById('navWrap');
+    const heroBg = document.getElementById('heroBg');
+    const menu = document.getElementById('mobileMenu');
+    const menuBtn = document.getElementById('menuBtn');
+    const menuClose = document.getElementById('menuClose');
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const onScroll = () => {
+      navWrap.classList.toggle('scrolled', window.scrollY > 80);
+      if (window.innerWidth > 760 && window.scrollY < window.innerHeight) {
+        heroBg.style.transform = `scale(1.05) translateY(${window.scrollY * .055}px)`;
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const closeMenu = () => {
+      menu.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+    menuBtn.addEventListener('click', () => {
+      menu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    menuClose.addEventListener('click', closeMenu);
+    menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  </script>
+</body>
+</html>
