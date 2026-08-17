@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#070706" />
   <meta name="description" content="Velerant — fios e pulseiras premium para homens que escolhem presença, detalhe e carácter." />
   <title>Velerant — Acessórios masculinos com presença</title>
+  <link rel="preconnect" href="https://cdn.shopify.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
@@ -412,11 +413,64 @@
       .footer-brand { grid-column:auto; }
       .footer-bottom { flex-direction:column; }
     }
+
+    .hero-proof { display:flex; gap:20px; flex-wrap:wrap; margin-top:24px; color:rgba(255,255,255,.62); font-size:10px; letter-spacing:.08em; text-transform:uppercase; }
+    .hero-proof span { display:flex; gap:8px; align-items:center; }
+    .hero-proof b { color:var(--gold-2); font-weight:800; }
+    .price { color:var(--gold-2); font-weight:800; letter-spacing:.05em; }
+
+    .quick-pick { padding:76px 0 30px; background:linear-gradient(180deg,#0a0a08,#070706); }
+    .quick-pick-head { display:grid; grid-template-columns:.7fr 1fr 1fr; gap:28px; align-items:end; margin-bottom:26px; }
+    .quick-pick-head h2 { font-family:"Playfair Display",serif; font-size:clamp(38px,4vw,62px); line-height:1; margin:0; font-weight:600; letter-spacing:-.04em; }
+    .quick-pick-head p { color:var(--muted); line-height:1.7; font-size:13px; margin:0; max-width:430px; }
+    .quick-pick-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .quick-card { border:1px solid var(--line); background:rgba(255,255,255,.025); padding:28px; min-height:230px; display:flex; flex-direction:column; transition:.25s var(--ease); }
+    .quick-card:hover { transform:translateY(-4px); border-color:rgba(201,165,95,.55); background:rgba(201,165,95,.05); }
+    .quick-no { color:var(--gold); font-size:10px; letter-spacing:.18em; }
+    .quick-card h3 { font-family:"Playfair Display",serif; font-size:36px; margin:22px 0 8px; font-weight:600; }
+    .quick-card p { color:var(--muted); line-height:1.65; font-size:12px; margin:0 0 22px; }
+    .quick-card strong { margin-top:auto; color:var(--gold-2); font-size:10px; text-transform:uppercase; letter-spacing:.12em; }
+
+    .faq { padding:120px 0; border-top:1px solid var(--line); }
+    .faq-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:80px; }
+    .faq-intro h2 { font-family:"Playfair Display",serif; font-size:clamp(46px,5.5vw,78px); line-height:.98; letter-spacing:-.04em; font-weight:600; margin:16px 0 22px; }
+    .faq-intro h2 span { color:var(--gold-2); }
+    .faq-intro p { color:var(--muted); line-height:1.7; max-width:380px; }
+    .faq-list details { border-top:1px solid var(--line); padding:0; }
+    .faq-list details:last-child { border-bottom:1px solid var(--line); }
+    .faq-list summary { list-style:none; cursor:pointer; padding:24px 0; display:flex; justify-content:space-between; gap:20px; font-size:14px; font-weight:600; }
+    .faq-list summary::-webkit-details-marker { display:none; }
+    .faq-list summary span { color:var(--gold-2); font-size:20px; transition:transform .2s ease; }
+    .faq-list details[open] summary span { transform:rotate(45deg); }
+    .faq-list details p { margin:0 50px 24px 0; color:var(--muted); font-size:13px; line-height:1.75; }
+
+    .mobile-buy { display:none; }
+
+    @media (max-width: 980px) {
+      .quick-pick-head { grid-template-columns:1fr; align-items:start; }
+      .quick-pick-grid { grid-template-columns:1fr; }
+      .quick-card { min-height:190px; }
+      .faq-grid { grid-template-columns:1fr; gap:38px; }
+    }
+
+    @media (max-width: 680px) {
+      body { padding-bottom:72px; }
+      .hero-proof { display:grid; grid-template-columns:1fr; gap:9px; margin-top:20px; }
+      .quick-pick { padding-top:58px; }
+      .quick-card { padding:23px; }
+      .faq { padding:78px 0; }
+      .faq-list summary { font-size:13px; }
+      .mobile-buy { position:fixed; z-index:90; left:10px; right:10px; bottom:10px; min-height:58px; background:var(--cream); color:#111; display:flex; align-items:center; justify-content:space-between; padding:0 19px; box-shadow:0 18px 55px rgba(0,0,0,.42); border:1px solid rgba(0,0,0,.08); }
+      .mobile-buy span { font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.1em; }
+      .mobile-buy small { display:block; font-size:8px; letter-spacing:.2em; opacity:.55; margin-bottom:2px; }
+      .mobile-buy b { font-size:22px; }
+    }
+
   </style>
 <script>!function(w,d,s,u,n,a,b){if(w[n])return;a=w[n]={q:[],t:+new Date,s:[],o:u,track:function(){a.q.push([+new Date].concat([].slice.call(arguments)))},setScope:function(){a.s=[].slice.call(arguments).filter(function(x){return typeof x==="string"});a.q.push([+new Date,"setScope"].concat(a.s))},scope:function(){var c=[].slice.call(arguments);return{track:function(){a.q.push([+new Date].concat([].slice.call(arguments)).concat([{__scope:c}]))}}}};b=d.createElement(s);b.async=1;b.src=u+"/s.js";d.getElementsByTagName(s)[0].parentNode.insertBefore(b,d.getElementsByTagName(s)[0])}(window,document,"script","https://t.whop.tw","whop");whop.setScope("biz_TLe64QQAtuEpCe");whop.track("page");</script>
 </head>
 <body>
-  <div class="announcement">Acessórios masculinos · design com presença · Velerant</div>
+  <div class="announcement">Velerant · joalharia masculina · peças desde $132.99</div>
 
   <div class="nav-wrap" id="navWrap">
     <nav class="nav container" aria-label="Navegação principal">
@@ -432,7 +486,7 @@
 
       <div class="nav-right">
         <a class="nav-link" href="#categorias">Fios &amp; Pulseiras</a>
-        <a class="pill-link" href="https://velerant.myshopify.com" target="_blank" rel="noopener">Comprar</a>
+        <a class="pill-link" href="https://velerant.myshopify.com">Comprar</a>
         <button class="menu-btn" id="menuBtn" aria-label="Abrir menu"><span></span><span></span></button>
       </div>
     </nav>
@@ -443,7 +497,7 @@
     <a href="#colecao">Coleção</a>
     <a href="#historia">A Velerant</a>
     <a href="#categorias">Fios &amp; Pulseiras</a>
-    <a href="https://velerant.myshopify.com" target="_blank" rel="noopener">Loja</a>
+    <a href="https://velerant.myshopify.com">Loja</a>
   </div>
 
   <main id="top">
@@ -453,16 +507,21 @@
       <div class="container hero-inner">
         <div class="hero-copy reveal">
           <span class="eyebrow">Joalharia masculina</span>
-          <h1>Estilo que impõe <em>presença.</em></h1>
-          <p class="hero-sub">Fios e pulseiras desenhados para homens que sabem que os detalhes não completam o visual — definem-no.</p>
+          <h1>O detalhe que muda <em>o teu visual.</em></h1>
+          <p class="hero-sub">Fios e pulseiras masculinas escolhidos para acrescentar presença sem exagero. Descobre a peça certa e compra diretamente na loja oficial Velerant.</p>
           <div class="actions">
-            <a class="btn btn-primary" href="#colecao">Explorar coleção <span class="arrow">→</span></a>
-            <a class="btn btn-dark" href="https://velerant.myshopify.com" target="_blank" rel="noopener">Ver loja</a>
+            <a class="btn btn-primary" href="https://velerant.myshopify.com/collections/all">Comprar coleção <span class="arrow">→</span></a>
+            <a class="btn btn-dark" href="#colecao">Ver mais vendidos</a>
+          </div>
+          <div class="hero-proof" aria-label="Razões para escolher Velerant">
+            <span><b>01</b> Design masculino</span>
+            <span><b>02</b> Materiais selecionados</span>
+            <span><b>03</b> Compra na loja oficial</span>
           </div>
         </div>
         <div class="hero-note reveal">
-          <strong>Feito para se destacar.</strong>
-          Design masculino, materiais marcantes e uma estética construída para transmitir carácter sem dizer uma palavra.
+          <strong>Escolha simples. Impacto imediato.</strong>
+          Ouro, aço, prata, couro, pedras e pérolas negras — estilos diferentes para encontrares rapidamente o detalhe que combina contigo.
         </div>
       </div>
       <div class="scroll-cue">Scroll para descobrir</div>
@@ -474,6 +533,27 @@
         <div class="ticker-item">Design masculino</div><div class="ticker-item">Aço inoxidável</div><div class="ticker-item">Ouro 18K</div><div class="ticker-item">Couro</div><div class="ticker-item">Pérolas negras</div><div class="ticker-item">Velerant</div>
       </div>
     </div>
+
+    <section class="quick-pick" aria-label="Escolha rápida">
+      <div class="container">
+        <div class="quick-pick-head reveal">
+          <span class="eyebrow">Escolha em segundos</span>
+          <h2>Qual é o teu estilo?</h2>
+          <p>Não precisas de percorrer tudo. Escolhe o efeito que procuras e vai direto à peça.</p>
+        </div>
+        <div class="quick-pick-grid">
+          <a class="quick-card reveal" href="https://velerant.myshopify.com/products/pulseira-de-aco-inoxidavel-masculina">
+            <span class="quick-no">01</span><h3>Discreto</h3><p>Linhas limpas, metal e presença controlada.</p><strong>Ver pulseira de aço →</strong>
+          </a>
+          <a class="quick-card reveal" href="https://velerant.myshopify.com/products/fio-de-ouro-18k-masculino">
+            <span class="quick-no">02</span><h3>Premium</h3><p>Ouro e acabamento clássico para elevar o look.</p><strong>Ver fio de ouro →</strong>
+          </a>
+          <a class="quick-card reveal" href="https://velerant.myshopify.com/products/fio-de-perolas-negras-masculino">
+            <span class="quick-no">03</span><h3>Statement</h3><p>Contraste forte para quem quer marcar diferença.</p><strong>Ver pérolas negras →</strong>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <section id="colecao">
       <div class="container">
@@ -489,27 +569,27 @@
           <article class="product-card reveal">
             <img src="https://cdn.shopify.com/s/files/1/0735/2683/7350/files/image_84a55760-af8c-4e10-8efc-455e16b0587a.png?v=1786985100" alt="Fio de Ouro 18K Masculino Velerant" loading="lazy" />
             <div class="product-content">
-              <div class="product-meta"><span>Fio</span><span>Ouro 18K</span></div>
+              <div class="product-meta"><span>Fio · Ouro 18K</span><span class="price">$299.99</span></div>
               <h3>Fio de Ouro 18K</h3>
-              <a class="product-link" href="https://velerant.myshopify.com/products/fio-de-ouro-18k-masculino" target="_blank" rel="noopener">Descobrir peça <span>→</span></a>
+              <a class="product-link" href="https://velerant.myshopify.com/products/fio-de-ouro-18k-masculino">Descobrir peça <span>→</span></a>
             </div>
           </article>
 
           <article class="product-card reveal">
             <img src="https://cdn.shopify.com/s/files/1/0735/2683/7350/files/image_a4fcc934-2f81-4a8a-9228-5951343ee496.png?v=1786985217" alt="Fio de Pérolas Negras Masculino Velerant" loading="lazy" />
             <div class="product-content">
-              <div class="product-meta"><span>Fio</span><span>Pérolas negras</span></div>
+              <div class="product-meta"><span>Fio · Pérolas negras</span><span class="price">$189.99</span></div>
               <h3>Fio de Pérolas Negras</h3>
-              <a class="product-link" href="https://velerant.myshopify.com/products/fio-de-perolas-negras-masculino" target="_blank" rel="noopener">Descobrir peça <span>→</span></a>
+              <a class="product-link" href="https://velerant.myshopify.com/products/fio-de-perolas-negras-masculino">Descobrir peça <span>→</span></a>
             </div>
           </article>
 
           <article class="product-card reveal">
             <img src="https://cdn.shopify.com/s/files/1/0735/2683/7350/files/image_75c9f7f3-1e8f-4350-a829-7026900b107f.png?v=1786985011" alt="Pulseira de Aço Inoxidável Masculina Velerant" loading="lazy" />
             <div class="product-content">
-              <div class="product-meta"><span>Pulseira</span><span>Aço 316L</span></div>
+              <div class="product-meta"><span>Pulseira · Aço 316L</span><span class="price">$149.99</span></div>
               <h3>Pulseira de Aço</h3>
-              <a class="product-link" href="https://velerant.myshopify.com/products/pulseira-de-aco-inoxidavel-masculina" target="_blank" rel="noopener">Descobrir peça <span>→</span></a>
+              <a class="product-link" href="https://velerant.myshopify.com/products/pulseira-de-aco-inoxidavel-masculina">Descobrir peça <span>→</span></a>
             </div>
           </article>
         </div>
@@ -523,7 +603,7 @@
           <h2>Menos ruído.<br><span>Mais presença.</span></h2>
           <div class="statement-copy">
             <p>A Velerant nasceu de uma ideia simples: um acessório masculino deve acrescentar personalidade, não distração. Cada peça é escolhida para criar contraste, textura e assinatura.</p>
-            <a class="product-link" href="https://velerant.myshopify.com" target="_blank" rel="noopener">Conhecer a coleção completa <span>→</span></a>
+            <a class="product-link" href="https://velerant.myshopify.com">Conhecer a coleção completa <span>→</span></a>
             <div class="facts">
               <div class="fact"><strong>316L</strong><span>Aço selecionado</span></div>
               <div class="fact"><strong>18K</strong><span>Elegância clássica</span></div>
@@ -547,9 +627,10 @@
             <div class="spec"><span>Peça</span><b>Fio com pingente</b></div>
             <div class="spec"><span>Material</span><b>Prata 925</b></div>
             <div class="spec"><span>Estilo</span><b>Minimal / masculino</b></div>
+            <div class="spec"><span>Preço</span><b>$159.99</b></div>
           </div>
           <div class="actions">
-            <a class="btn btn-primary" href="https://velerant.myshopify.com/products/fio-de-prata-com-pingente-cruz" target="_blank" rel="noopener">Ver fio <span class="arrow">→</span></a>
+            <a class="btn btn-primary" href="https://velerant.myshopify.com/products/fio-de-prata-com-pingente-cruz">Ver fio <span class="arrow">→</span></a>
           </div>
         </div>
       </div>
@@ -566,11 +647,11 @@
         </div>
 
         <div class="category-grid">
-          <a class="category-card reveal" href="https://velerant.myshopify.com/collections/all" target="_blank" rel="noopener">
+          <a class="category-card reveal" href="https://velerant.myshopify.com/collections/all">
             <img src="https://cdn.shopify.com/s/files/1/0735/2683/7350/files/image_2813efe1-d1b8-45e7-b602-b3848cd3fad9.png?v=1786985071" alt="Fios masculinos Velerant" loading="lazy" />
             <div class="category-label"><h3>Fios</h3><span class="circle-arrow">→</span></div>
           </a>
-          <a class="category-card reveal" href="https://velerant.myshopify.com/collections/all" target="_blank" rel="noopener">
+          <a class="category-card reveal" href="https://velerant.myshopify.com/collections/all">
             <img src="https://cdn.shopify.com/s/files/1/0735/2683/7350/files/image.png?v=1786984988" alt="Pulseiras masculinas Velerant" loading="lazy" />
             <div class="category-label"><h3>Pulseiras</h3><span class="circle-arrow">→</span></div>
           </a>
@@ -593,7 +674,7 @@
           <blockquote>“O acessório certo não chama atenção. <em>Prende-a.</em>”</blockquote>
           <div>
             <p>Velerant é presença construída nos detalhes: peso, textura, contraste e proporção. Uma linguagem visual simples, masculina e impossível de confundir.</p>
-            <a class="product-link" href="https://velerant.myshopify.com" target="_blank" rel="noopener">Entrar na Velerant <span>→</span></a>
+            <a class="product-link" href="https://velerant.myshopify.com">Entrar na Velerant <span>→</span></a>
           </div>
         </div>
         <div class="editorial-image reveal">
@@ -602,13 +683,41 @@
       </div>
     </section>
 
+    <section class="faq" id="faq">
+      <div class="container faq-grid">
+        <div class="faq-intro reveal">
+          <span class="eyebrow">Antes de escolher</span>
+          <h2>Sem dúvidas.<br><span>Vai direto à peça.</span></h2>
+          <p>As respostas essenciais para escolher sem perder tempo.</p>
+        </div>
+        <div class="faq-list reveal">
+          <details open>
+            <summary>Que tipo de acessórios encontro na Velerant?<span>+</span></summary>
+            <p>Fios e pulseiras masculinas em diferentes estilos e materiais, incluindo aço inoxidável, couro, prata, ouro, pedras naturais e pérolas negras.</p>
+          </details>
+          <details>
+            <summary>Como escolho uma peça para o dia a dia?<span>+</span></summary>
+            <p>Se procuras algo fácil de combinar, começa pelo aço, couro ou prata. Para um visual mais marcante, explora ouro, pedras ou pérolas negras.</p>
+          </details>
+          <details>
+            <summary>Onde é finalizada a compra?<span>+</span></summary>
+            <p>Os botões desta página levam-te diretamente à loja oficial Velerant na Shopify, onde selecionas a peça e finalizas a encomenda.</p>
+          </details>
+          <details>
+            <summary>Os preços apresentados nesta página são em que moeda?<span>+</span></summary>
+            <p>Os preços mostrados aqui estão em USD, a moeda configurada atualmente na loja Velerant.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="final-cta">
       <div class="container reveal">
         <span class="eyebrow">Velerant</span>
         <h2>O teu estilo.<br><span>A tua presença.</span></h2>
-        <p>Descobre a coleção completa de fios e pulseiras masculinas e encontra a peça que diz tudo antes de dizeres uma palavra.</p>
+        <p>Já viste os estilos e os materiais. Agora falta só escolher a peça que melhor encaixa no teu visual.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="https://velerant.myshopify.com" target="_blank" rel="noopener">Comprar agora <span class="arrow">→</span></a>
+          <a class="btn btn-primary" href="https://velerant.myshopify.com/collections/all">Ver coleção completa <span class="arrow">→</span></a>
         </div>
       </div>
     </section>
@@ -630,7 +739,7 @@
         <div class="footer-col">
           <h4>Velerant</h4>
           <a href="#historia">A marca</a>
-          <a href="https://velerant.myshopify.com" target="_blank" rel="noopener">Loja oficial</a>
+          <a href="https://velerant.myshopify.com">Loja oficial</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -639,6 +748,10 @@
       </div>
     </div>
   </footer>
+
+  <a class="mobile-buy" href="https://velerant.myshopify.com/collections/all" aria-label="Comprar coleção Velerant">
+    <span><small>VELERANT</small> Ver coleção</span><b>→</b>
+  </a>
 
   <script>
     const navWrap = document.getElementById('navWrap');
